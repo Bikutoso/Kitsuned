@@ -1,0 +1,14 @@
+{
+	"id": "kitsuned",
+	"name": "Kitsuned",
+	"display_name": "Kitsuned",
+	"author": ["Bikutoso"],
+	"description": "Adds some random things",
+	"prefix": "ktsu",
+	"main_file": "main.lua",
+	"priority": 0,
+	"badge_colour": "EE7510",
+	"badge_text_colour": "FFFFFF",
+	"version": "0.0.0~dev",
+	"dependencies": ["Steamodded (>=1.0.0~BETA-0711a)"]
+}

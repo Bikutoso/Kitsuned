@@ -1,0 +1,43 @@
+return {
+    descriptions = {
+        Back={},
+        Blind={},
+        Edition={},
+        Enhanced={},
+        Joker={},
+        Other={},
+        Planet={},
+        Spectral={},
+        Stake={},
+        Tag={},
+        Tarot={},
+        Voucher={},
+    },
+    misc = {
+        achievement_descriptions={},
+        achievement_names={},
+        blind_states={},
+        challenge_names={},
+        collabs={},
+        dictionary={},
+        high_scores={},
+        labels={},
+        poker_hands={
+          ["cat_dog"] = "Cat/Dog",
+        },
+        poker_hand_descriptions={
+          ["cat_dog"] = {
+            "From a set high to set low",
+            "with non-pair cards inbetween",
+            "(Valid high/low: A-9, K-8, 8-7, 7-2)",
+          },
+        },
+        quips={},
+        ranks={},
+        suits_plural={},
+        suits_singular={},
+        tutorial={},
+        v_dictionary={},
+        v_text={},
+    },
+}
