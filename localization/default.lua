@@ -1,8 +1,8 @@
 return {
     descriptions = {
       Planet={
-        c_ktsu_moon = {
-          name = "Moon",
+        c_ktsu_rhea = {
+          name = "Rhea",
           text = {
             "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up",
             "{C:attention}#2#",
@@ -13,6 +13,9 @@ return {
       },
     },
     misc = {
+        dictionary = {
+          ["k_ktsu_moon"] = "Moon"
+        },
         poker_hands={
           ["ktsu_cat_dog"] = "Cat/Dog",
         },
