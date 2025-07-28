@@ -3,8 +3,9 @@ SMODS.PokerHand {
   key = 'cat_dog',
   chips = 30,
   mult = 4,
-  l_chips = 30,
+  l_chips = 35,
   l_mult = 3,
+  above_hand = "Straight",
   example = {
     { 'S_K', true},
     { 'C_Q', true},
@@ -14,19 +15,13 @@ SMODS.PokerHand {
   },
   evaluate = function(parts, hand)
     if #hand < 5 then return {} end
-    if next(parts._all_pairs) then return {} end
+    ---BUG: Deleting Shortcut while having a cat/dog selected still have Straight hand selected
+    if next(parts._all_pairs) or next(parts._straight) then return {} end
 
-    if calculate_cat_dog(hand) then
-      return {hand}
-    end
+    return calculate_cat_dog(hand) and {hand} or {}
   end,
   modify_display_text = function(self, cards, scoring_hand)
     hand_name = calculate_cat_dog(scoring_hand)
-    
-    if hand_name then
-      return hand_name
-    end
-    
-    return "Fox" --When neihter a cat or a dog it's a fox
+    return hand_name or "Fox" --When neihter a cat or a dog it's a fox
   end
 }
