@@ -15,8 +15,8 @@ function calculate_cat_dog(hand)
     }
 
   local select = {0, 14}
-  for i = 1, #hand do
-    local current_hand = card_order[hand[i].base.value]
+  for _, card in ipairs(hand) do
+    local current_hand = card_order[card.base.value]
     if select[1] < current_hand then select[1] = current_hand end
     if select[2] > current_hand then select[2] = current_hand end
   end
@@ -24,7 +24,7 @@ function calculate_cat_dog(hand)
   for hand_type, high_low in pairs(valid_high_low) do
     local high = nil
     local low = nil
-    
+
     if select[1] == card_order[high_low[1]] then
       high = high_low[1]
     end

@@ -1,5 +1,36 @@
 return {
     descriptions = {
+      Joker = {
+        j_ktsu_energetic_joker = {
+          name = "Energetic Joker",
+          text = {
+            "{C:mult}+#1#{} Mult if played",
+            "hand contains",
+            "a {C:attention}#2#",
+          },
+        },
+        j_ktsu_playful_joker = {
+          name = "Playful Joker",
+          text = {
+            "{C:chips}+#1#{} Chips if played",
+            "hand contains",
+            "a {C:attention}#2#",
+          },
+        },
+        j_ktsu_friend = {
+          name = "The Friend",
+          text = {
+            "{X:mult,C:white}+#1#{} Mult if played",
+            "hand contains",
+            "a {C:attention}#2#",
+          },
+          unlock = {
+            "Win a run",
+            "without playing",
+            "a {E:1,C:attention}#1#",
+          },
+        },
+      },
       Planet={
         c_ktsu_rhea = {
           name = "Rhea",
