@@ -21,7 +21,6 @@ SMODS.PokerHand {
     return calculate_cat_dog(hand) and {hand} or {}
   end,
   modify_display_text = function(self, cards, scoring_hand)
-    hand_name = calculate_cat_dog(scoring_hand)
-    return hand_name or "Fox" --When neihter a cat or a dog it's a fox
+    return calculate_cat_dog(scoring_hand)
   end
 }
