@@ -30,6 +30,14 @@ return {
             "a {E:1,C:attention}#1#",
           },
         },
+        j_ktsu_fox = {
+          name = "Fox",
+          text = {
+            "Allows {C:attention}Cat/Dog{} to be",
+            "made with nonstandard hands",
+            "{C:inactive}(ex: {C:attention}10 9 7 6 5{C:inactive})",
+          },
+        },
       },
       Planet={
         c_ktsu_rhea = {

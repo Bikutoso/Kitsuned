@@ -75,3 +75,16 @@ SMODS.Joker {
     return args.type == "win_no_hand" and G.GAME.hands["ktsu_cat_dog"].played == 0
   end
 }
+
+SMODS.Joker {
+  key = "fox",
+  blueprint_compat = false,
+  rarity = 2,
+  cost = 7,
+  atlas = "jokers",
+  pos = { x = 3, y = 0},
+  config = {},
+  loc_vars = function(self, info_queue, card)
+    return {}
+  end,
+}
