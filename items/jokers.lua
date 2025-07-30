@@ -80,7 +80,7 @@ SMODS.Joker {
   key = "fox",
   blueprint_compat = false,
   rarity = 2,
-  cost = 7,
+  cost = 8,
   atlas = "jokers",
   pos = { x = 3, y = 0},
   config = {},

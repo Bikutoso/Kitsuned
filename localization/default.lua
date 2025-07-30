@@ -20,7 +20,7 @@ return {
         j_ktsu_friend = {
           name = "The Friend",
           text = {
-            "{X:mult,C:white}+#1#{} Mult if played",
+            "{X:mult,C:white}X#1#{} Mult if played",
             "hand contains",
             "a {C:attention}#2#",
           },

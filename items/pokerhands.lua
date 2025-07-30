@@ -3,8 +3,8 @@ SMODS.PokerHand {
   key = 'cat_dog',
   chips = 30,
   mult = 4,
-  l_chips = 35,
-  l_mult = 3,
+  l_chips = 30,
+  l_mult = 2,
   above_hand = "Straight",
   example = {
     { 'S_K', true},
