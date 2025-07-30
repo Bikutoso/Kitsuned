@@ -9,6 +9,8 @@ A Balatro mod that adds some new things.
 ### Jokers
 **Fox:** Expands valid Cat/Dog hands by allowing all High Low combinations (Ace is always high)
 
+**Pet Bowl:** Save surplus chips for when you are a little short
+
 ## Todo
 * More jokers, enchaments, stickers, and much more
 * Low Ace Fox (Cat/Dog)
