@@ -1,8 +1,8 @@
 function calculate_cat_dog(hand)
-
   local fox_present = false
   if next(SMODS.find_card("j_ktsu_fox")) then fox_present = true end
 
+  -- TODO: Low Ace Fox?
   local poker_hands = {
     ["Ace"] = {["9"] = "Big Dog"},
     ["King"] = {["8"] = "Big Cat"},
