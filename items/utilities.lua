@@ -14,15 +14,13 @@ function calculate_cat_dog(hand)
     ["7"] = {["2"] = "Little Dog"}
   }
   -- Find higest and lowest played card
-  local high_low = {{0, nil}, {12, nil}}
+  local high_low = {{0, nil}, {12, nil}} -- Integer Value, Card Name
   for _, card in ipairs(hand) do
     local current_hand = SMODS.Ranks[card.base.value].pos.x
     if high_low[1][1] < current_hand then high_low[1] = {current_hand, card.base.value} end
     if high_low[2][1] > current_hand then high_low[2] = {current_hand, card.base.value} end
   end
 
-  sendDebugMessage("High/Low: "..inspectDepth(high_low), "Ktsu")
- 
   -- Find Valid Hand
   local high = high_low[1][2]
   local low = high_low[2][2]
