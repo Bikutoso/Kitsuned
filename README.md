@@ -9,3 +9,12 @@ A Balatro mod that adds some new things.
 ### Jokers
 **Fox:** Expands valid Cat/Dog hands by allowing all High Low combinations (Ace is always high)
 
+## Todo
+* More jokers, enchaments, stickers, and much more
+* Low Ace Fox (Cat/Dog)
+* Better Art
+* Possibly a boss blind
+
+## Issues
+* Cat/Dog hands likley will break if playing more than 5 cards.
+* Typos, always typos
