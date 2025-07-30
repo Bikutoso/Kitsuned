@@ -38,6 +38,15 @@ return {
             "{C:inactive}(ex: {C:attention}10 9 7 6 5{C:inactive})",
           },
         },
+        j_ktsu_pet_bowl = {
+          name = "Pet Bowl",
+          text = {
+            "Saves excessive chips",
+            "at end of round and",
+            "adds them in case of death",
+            "{C:inactive}(Currnetly {X:purple,C:white}#1#{C:inactive} Chips)"
+          },
+        },
       },
       Planet={
         c_ktsu_rhea = {
