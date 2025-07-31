@@ -93,8 +93,10 @@ SMODS.Joker {
   blueprint_compat = false,
   rarity = 3,
   cost = 12,
+  unlocked = false,
+  no_pool_flag = "ktsu_pet_bowl_in_deck",
   atlas = "jokers",
-  pos = { x = 1, y = 1},
+  pos = { x = 0, y = 1},
   config = {},
   loc_vars = function(self, info_queue, card)
     return {
@@ -104,18 +106,49 @@ SMODS.Joker {
     }
   end,
   calculate = function(self, card, context)
-    if context.end_of_round and context.main_eval then
+    calc_texture = function()
+      local chips_saved = G.GAME.pet_bowl_saved
+      local blind_score = G.GAME.blind.chips
+      local old_texture = self.pos.x
+
+      if chips_saved >= blind_score * 2 then -- Well 2 times blind
+        self.pos.x = 2
+      elseif chips_saved >= blind_score then -- Above blind
+        self.pos.x = 1
+      else -- Under blind
+        self.pos.x = 0
+      end
+      if not old_texture == self.pos.x then return true end
+    end
+  
+    -- Ensure only one joker can exist
+    if context.buying_card then
+      G.GAME.pool_flags.ktsu_pet_bowl_in_deck = true
+    end
+
+    -- Spawn joker again if sold
+    if context.selling_card then
+      G.GAME.pool_flags.ktsu_pet_bowl_in_deck = false
+    end
+
+    -- Update texture for each blind
+    if context.setting_blind or context.skip_blind then
+      calc_texture()
+      --TODO: Card jiggle on texture change
+    end
+    
+    -- Chip save
+    if context.end_of_round and context.main_eval and not context.blueprint then
      local chips_saved = G.GAME.pet_bowl_saved
      local chips_excess = G.GAME.chips - G.GAME.blind.chips
      
      if chips_excess > 0 then
        G.GAME.chips = G.GAME.chips - chips_excess
        G.GAME.pet_bowl_saved = chips_saved + chips_excess
+       calc_texture()
         G.E_MANAGER:add_event(Event({
           func = function()
-            --G.hand_text_area.blind_chips:juice_up()
             G.hand_text_area.game_chips:juice_up()
-            play_sound("slice1")
             return true
           end,
         }))
@@ -125,29 +158,40 @@ SMODS.Joker {
          card = card,
        }
      end
+   end
 
-     if context.game_over then
-       G.GAME.chips = G.GAME.chips + chips_saved
-       G.GAME.pet_bowl_saved = 0
-       if G.GAME.chips >= G.GAME.blind.chips then
-         G.E_MANAGER:add_event(Event({
-           func = function()
-             --G.hand_text_area.blind_chips:juice_up()
-             G.hand_text_area.game_chips:juice_up()
-             play_sound("tarot1")
-             return true
-           end,
-         }))
-         return {
-           message = localize("k_saved_ex"),
-           saved = true,
-           colour = G.C.PURPLE,
-         }
-       end
-     end
+   -- Game Over handeling
+   if context.end_of_round and context.game_over and not context.blueprint then
+     local chips_saved = G.GAME.pet_bowl_saved
      
-     self.pos.x = G.GAME.round_resets.ante % 3
+     G.GAME.chips = G.GAME.chips + chips_saved
+     G.GAME.pet_bowl_saved = 0
+     self.pos.x = 0 -- No need to calculate new texture
+     
+     if G.GAME.chips >= G.GAME.blind.chips then
+       G.E_MANAGER:add_event(Event({
+         func = function()
+           G.hand_text_area.game_chips:juice_up()
+           play_sound("tarot1")
+           return true
+         end,
+       }))
+       return {
+         message = localize("k_saved_ex"),
+         saved = true,
+         colour = G.C.PURPLE,
+       }
+     end
+   end
+  end,
+  locked_loc_vars = function(self, info_queue, card)
+    return { vars = { 10, G.PROFILES[G.SETTINGS.profile].career_stats.c_losses}}
+  end,
+  check_for_unlock = function(self, args)
+    if args.type == 'career_stat' and args.statname == 'c_losses' then
+      return G.PROFILES[G.SETTINGS.profile].career_stats[args.statname] >= 10
     end
+    return false
   end
 }
 
