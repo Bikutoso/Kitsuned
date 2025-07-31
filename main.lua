@@ -3,6 +3,7 @@ modules = {
   "jokers",
   "pokerhands",
   "planets",
+  "achievements",
   "utilities"
 }
 
