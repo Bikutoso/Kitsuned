@@ -1,11 +1,3 @@
-SMODS.Atlas {
-  key = "planets",
-  path = "planets.png",
-  px = 71,
-  py = 95
-}
-
-
 SMODS.Consumable {
   key = "rhea",
   set = "Planet",

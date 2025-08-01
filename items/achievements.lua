@@ -1,10 +1,3 @@
-SMODS.Atlas {
-  key = "achievements",
-  path = "achievements.png",
-  px = 66,
-  py = 66
-}
-
 SMODS.Achievement {
   key="what_are_the_odds",
   atlas = "achievements",
