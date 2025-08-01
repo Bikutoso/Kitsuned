@@ -71,7 +71,8 @@ return {
           ["ach_ktsu_what_are_the_odds"] = "1 in 100,000,000",
         },
         dictionary = {
-          ["k_ktsu_moon"] = "Moon"
+          ["k_ktsu_moon"] = "Moon",
+          ["k_ktsu_crunch"] = "Crunch",
         },
         poker_hands = {
           ["ktsu_cat_dog"] = "Cat/Dog",

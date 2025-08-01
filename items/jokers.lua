@@ -1,10 +1,10 @@
-
 SMODS.Atlas {
   key = "jokers",
   path = "jokers.png",
   px = 71,
   py = 95
 }
+
 
 SMODS.Joker {
   key = "energetic_joker",
@@ -111,6 +111,7 @@ SMODS.Joker {
       local blind_score = G.GAME.blind.chips
       local old_texture = self.pos.x
 
+      -- BUG: Until updated texture can be wrong if sold and rebought, or reload a save.
       if chips_saved >= blind_score * 2 then -- Well 2 times blind
         self.pos.x = 2
       elseif chips_saved >= blind_score then -- Above blind
@@ -143,17 +144,20 @@ SMODS.Joker {
      local chips_excess = G.GAME.chips - G.GAME.blind.chips
      
      if chips_excess > 0 then
+       local sound_variants = {"ktsu_crunch1", "ktsu_crunch2", "ktsu_crunch3", "ktsu_crunch4"}
        G.GAME.chips = G.GAME.chips - chips_excess
        G.GAME.pet_bowl_saved = chips_saved + chips_excess
        calc_texture()
-        G.E_MANAGER:add_event(Event({
-          func = function()
-            G.hand_text_area.game_chips:juice_up()
-            return true
-          end,
-        }))
+
+       G.E_MANAGER:add_event(Event({
+         func = function()
+           G.hand_text_area.game_chips:juice_up()
+           play_sound(pseudorandom_element(sound_variants, "cruncho", nil))
+           return true
+         end,
+       }))
        return {
-         message = localize("k_upgrade_ex"),
+         message = localize("k_ktsu_crunch"),
          colour = G.C.PURPLE,
          card = card,
        }
