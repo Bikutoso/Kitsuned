@@ -13,11 +13,8 @@ SMODS.Achievement {
   hidden_text = true,
   unlock_condition = function(self, args)
     if args.handname then
-      -- Until glitched hand is fixed just a random chance each hand played
+      -- Where tided to something stupid, now just random chance each poker hand played.
       if math.random(1,1000000) == 1 then return true end
     end
-    --if args.handname == "ktsu_glitched" then
-    --  return true
-    --end
   end
 }

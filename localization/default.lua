@@ -75,17 +75,12 @@ return {
         },
         poker_hands = {
           ["ktsu_cat_dog"] = "Cat/Dog",
-          ["ktsu_glitched"] = "_4>_:+,E:2}<:[&(8|&>"
         },
         poker_hand_descriptions = {
           ["ktsu_cat_dog"] = {
             "From a set high to set low",
             "with non-pair cards inbetween",
             "(A-9, K-8, 8-3, 7-2)",
-          },
-          ["ktsu_glitched"] = {
-            "{C:hearts},{C:hearts,s:1.1}>,{}15]`^={}>_%($16{E:1}<",
-            "&-+./23{X:chips}'~{}{s:1.1}!:]{E:2,s:1.1}42'$",
           },
         }
     }
