@@ -1,9 +1,9 @@
 
 SMODS.PokerHand {
   key = 'cat_dog',
-  chips = 40,
+  chips = 35,
   mult = 5,
-  l_chips = 15,
+  l_chips = 25,
   l_mult = 3,
   above_hand = "Straight",
   example = {
@@ -20,7 +20,7 @@ SMODS.PokerHand {
     local current_hand = SMODS.merge_lists(parts._highest, parts.ktsu_lowest)
     local valid = get_cat_dog_hand_name(current_hand)
     
-    
+    -- ISSUE: Stone kickers don't always produce valid hands
     if valid then return { current_hand } else return {} end
   end,
   modify_display_text = function(self, cards, scoring_hand)
@@ -34,8 +34,10 @@ SMODS.PokerHandPart {
     local lowest = nil
 
     for _, card in ipairs(hand) do
-      if not lowest or card:get_nominal() < lowest:get_nominal() then
-        lowest = card
+      if not SMODS.has_no_suit(card) then -- HACK: No Stone in low
+        if not lowest or card:get_nominal() < lowest:get_nominal() then
+          lowest = card
+        end
       end
     end
     

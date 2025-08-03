@@ -15,7 +15,7 @@ function get_cat_dog_hand_name(hand)
 
   local highest = hand[1].base.value
   local lowest = hand[2].base.value
-  sendDebugMessage("High: "..highest.."\nLow: :"..lowest, "ktsu")
+
   -- Find Valid Hand
   if poker_hands[highest] then
     valid_hand = poker_hands[highest][lowest]
