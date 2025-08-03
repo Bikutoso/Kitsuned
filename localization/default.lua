@@ -35,7 +35,7 @@ return {
           text = {
             "{C:attention}Cat/Dog{} can to be",
             "made with nonstandard hands",
-            "{C:inactive}(ex: {C:attention}10 9 7 6 5{C:inactive})",
+            "{C:inactive}(ex: {C:attention}Q-7, 10-5{C:inactive})",
           },
         },
         j_ktsu_pet_bowl = {
@@ -79,8 +79,8 @@ return {
         },
         poker_hand_descriptions = {
           ["ktsu_cat_dog"] = {
-            "From a set high to set low",
-            "with non-pair cards inbetween",
+            "Defined High and Low card",
+            "cards inbetween unplayed",
             "(A-9, K-8, 8-3, 7-2)",
           },
         }

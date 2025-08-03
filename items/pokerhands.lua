@@ -18,9 +18,9 @@ SMODS.PokerHand {
     if next(parts._all_pairs) or next(parts._straight) then return {} end
 
     local current_hand = SMODS.merge_lists(parts._highest, parts.ktsu_lowest)
-    local valid = get_cat_dog_hand_name(current_hand)
+    local valid = get_cat_dog_hand_name(current_hand) -- Valid if has a name
     
-    -- ISSUE: Stone kickers don't always produce valid hands
+    -- ISSUE: Some unplayed stone cards don't always produce valid hands.
     if valid then return { current_hand } else return {} end
   end,
   modify_display_text = function(self, cards, scoring_hand)

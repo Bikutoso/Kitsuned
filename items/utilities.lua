@@ -3,24 +3,22 @@ function get_cat_dog_hand_name(hand)
 
   -- TODO: Low Ace Fox?
   local poker_hands = {
-    ["Ace"] = {["9"] = "Big Dog"},
-    ["King"] = {["8"] = "Big Cat"},
-    ["Queen"] = {["7"] = "Fox"},
-    ["Jack"] = {["6"] = "Fox"},
-    ["10"] = {["5"] = "Fox"},
-    ["9"] = {["4"] = "Fox"},
-    ["8"] = {["3"] = "Little Cat"},
-    ["7"] = {["2"] = "Little Dog"}
+    ["Ace9"] = "Big Dog",
+    ["King8"] = "Big Cat",
+    ["Queen7"] = "Fox",
+    ["Jack6"] = "Fox",
+    ["105"] = "Fox",
+    ["94"] = "Fox",
+    ["83"] = "Little Cat",
+    ["72"] = "Little Dog"
   }
 
   local highest = hand[1].base.value
   local lowest = hand[2].base.value
 
   -- Find Valid Hand
-  if poker_hands[highest] then
-    valid_hand = poker_hands[highest][lowest]
-    if not fox_present and valid_hand == "fox" then return nil end
+  valid_hand = poker_hands[highest..lowest]
 
-    return valid_hand
-  end
+  if not fox_present and valid_hand == "fox" then return nil end
+  return valid_hand
 end

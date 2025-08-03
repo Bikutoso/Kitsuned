@@ -6,7 +6,7 @@ SMODS.Joker {
   cost = 4,
   atlas = "jokers",
   pos = { x = 0, y = 0},
-  config = { extra = { mult = 10, type = "ktsu_cat_dog" } },
+  config = { extra = { mult = 12, type = "ktsu_cat_dog" } },
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.mult, localize(card.ability.extra.type, "poker_hands") } }
   end,
@@ -27,7 +27,7 @@ SMODS.Joker {
   cost = 4,
   atlas = "jokers",
   pos = { x = 1, y = 0},
-  config = { extra = { chips = 90, type = "ktsu_cat_dog" } },
+  config = { extra = { chips = 100, type = "ktsu_cat_dog" } },
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.chips, localize(card.ability.extra.type, "poker_hands") } }
   end,
