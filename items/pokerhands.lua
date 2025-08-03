@@ -16,36 +16,27 @@ SMODS.PokerHand {
   evaluate = function(parts, hand)
     if #hand < 5 then return {} end
     if next(parts._all_pairs) or next(parts._straight) then return {} end
-
-    high = next(parts._highest)
-    low = next(parts.ktsu_lowest)
-
-    sendDebugMessage("High: "..inspect(high).."\nLow: "..inspect(low), "ktsu")
     
-    return { SMODS.merge_lists(parts._highest, parts.ktsu_lowest) }
-    --return calculate_cat_dog(hand, false)
+    valid_hand = SMODS.merge_lists(parts._highest, parts.ktsu_lowest)
+
+    return { valid_hand }
   end,
-  modify_display_text = function(self, cards, scoring_hand)
-    return "cat/dog"
-    --return calculate_cat_dog(scoring_hand, true)
-  end
+  --modify_display_text = function(self, cards, scoring_hand)
+  --  --return calculate_cat_dog(scoring_hand, true)
+  --end
 }
 
 SMODS.PokerHandPart {
   key = "lowest",
   func = function(hand)
-    if #hand < 1 then return {} end
-    local low_card = {}
-    local low_raw = 11
-    
+    local lowest = nil
+
     for _, card in ipairs(hand) do
-      local card_value = card.base.value
-      if SMODS.Ranks[card_value].pos.x < low_raw then
-        low_card[1] = card
-        low_raw = SMODS.Ranks[card_value].pos.x
+      if not lowest or card:get_nominal() < lowest:get_nominal() then
+        lowest = card
       end
     end
-    --sendDebugMessage("Part: "..inspectDepth(low_card), "ktsu")
-    return low_card
+    
+    if #hand > 0 then return {{lowest}} else return {} end
   end
 }
