@@ -14,16 +14,18 @@ SMODS.PokerHand {
     {"H_8", true}
   },
   evaluate = function(parts, hand)
-    if #hand < 5 then return {} end
+    if #hand < SMODS.four_fingers() then return {} end
     if next(parts._all_pairs) or next(parts._straight) then return {} end
-    
-    valid_hand = SMODS.merge_lists(parts._highest, parts.ktsu_lowest)
 
-    return { valid_hand }
+    local current_hand = SMODS.merge_lists(parts._highest, parts.ktsu_lowest)
+    local valid = get_cat_dog_hand_name(current_hand)
+    
+    
+    if valid then return { current_hand } else return {} end
   end,
-  --modify_display_text = function(self, cards, scoring_hand)
-  --  --return calculate_cat_dog(scoring_hand, true)
-  --end
+  modify_display_text = function(self, cards, scoring_hand)
+    return get_cat_dog_hand_name(scoring_hand)
+  end
 }
 
 SMODS.PokerHandPart {
