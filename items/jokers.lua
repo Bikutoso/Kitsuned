@@ -123,6 +123,8 @@ SMODS.Joker {
     -- Spawn joker again if sold
     if context.selling_card then
       G.GAME.pool_flags.ktsu_pet_bowl_in_deck = false
+      G.GAME.pet_bowl_saved = 0 -- Forcefully reset joker and sprite
+      self.pos.x = 0
     end
 
     -- Update texture for each blind
@@ -154,6 +156,18 @@ SMODS.Joker {
          colour = G.C.PURPLE,
          card = card,
        }
+     end
+     load = function(self, card, card_table, other_card)
+      local chips_saved = G.GAME.pet_bowl_saved
+      local blind_score = G.GAME.blind.chips
+
+      if chips_saved >= blind_score * 2 then -- Well 2 times blind
+        self.pos.x = 2
+      elseif chips_saved >= blind_score then -- Above blind
+        self.pos.x = 1
+      else -- Under blind
+        self.pos.x = 0
+      end
      end
    end
 

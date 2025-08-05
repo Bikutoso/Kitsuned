@@ -62,6 +62,16 @@ return {
           },
         },
       },
+      Tarot = {
+        c_ktsu_worn_tarot = {
+          name = "Worn Card",
+          text = {
+            "Upgrades cards with",
+            "existing enhancments",
+            "{C:inactive}(Cannot upgrade same card twice)",
+          },
+        },
+      },
     },
     misc = {
         achievement_names = {
