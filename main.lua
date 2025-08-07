@@ -3,7 +3,7 @@ modules = {
   "content",
   "jokers",
   "pokerhands",
-  "tarots",
+  --"tarots", --Disabled for the moment
   "planets",
   "challanges",
   "achievements",
