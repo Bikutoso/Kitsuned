@@ -74,6 +74,9 @@ return {
       },
     },
     misc = {
+        challenge_names = {
+          c_ktsu_self_made = "Self Made",
+        },
         achievement_names = {
           ["ach_ktsu_what_are_the_odds"] = "What are the odds?",
         },

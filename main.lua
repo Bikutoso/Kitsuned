@@ -5,6 +5,7 @@ modules = {
   "pokerhands",
   "tarots",
   "planets",
+  "challanges",
   "achievements",
   "utilities"
 }
