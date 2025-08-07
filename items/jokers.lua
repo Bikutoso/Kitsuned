@@ -11,7 +11,12 @@ SMODS.Joker {
     badges[#badges + 1] = create_badge( localize("k_ktsu_art_credit_biku"), G.C.PURPLE, nil, 0.9 )
   end,
   loc_vars = function(self, info_queue, card)
-    return { vars = { card.ability.extra.mult, localize(card.ability.extra.type, "poker_hands") } }
+    return {
+      vars = {
+        card.ability.extra.mult,
+        localize(card.ability.extra.type, "poker_hands")
+      }
+    }
   end,
   calculate = function(self, card, context)
     if context.joker_main and next(context.poker_hands["ktsu_cat_dog"]) then
@@ -35,7 +40,12 @@ SMODS.Joker {
     badges[#badges + 1] = create_badge( localize("k_ktsu_art_credit_biku"), G.C.PURPLE, nil, 0.9 )
   end,
   loc_vars = function(self, info_queue, card)
-    return { vars = { card.ability.extra.chips, localize(card.ability.extra.type, "poker_hands") } }
+    return {
+      vars = {
+        card.ability.extra.chips,
+        localize(card.ability.extra.type, "poker_hands")
+      }
+    }
   end,
   calculate = function(self, card, context)
     if context.joker_main and next(context.poker_hands["ktsu_cat_dog"]) then
@@ -60,7 +70,12 @@ SMODS.Joker {
     badges[#badges + 1] = create_badge( localize("k_ktsu_art_credit_biku"), G.C.PURPLE, nil, 0.9 )
   end,
   loc_vars = function(self, info_queue, card)
-    return { vars = { card.ability.extra.Xmult, localize(card.ability.extra.type, "poker_hands") } }
+    return {
+      vars = {
+        card.ability.extra.Xmult,
+        localize(card.ability.extra.type, "poker_hands")
+      }
+    }
   end,
   calculate = function(self, card, context)
     if context.joker_main and next(context.poker_hands["ktsu_cat_dog"]) then
@@ -102,20 +117,20 @@ SMODS.Joker {
   no_pool_flag = "ktsu_pet_bowl_in_deck",
   atlas = "jokers",
   pos = { x = 0, y = 1},
-  config = {},
+  config = { extra = {score_saved = 0} },
   set_card_type_badge = function(self, card, badges)
     badges[#badges + 1] = create_badge( localize("k_ktsu_art_credit_biku"), G.C.PURPLE, nil, 0.9 )
   end,
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
-        G.GAME.pet_bowl_saved
+        card.ability.extra.score_saved
       }
     }
   end,
   calculate = function(self, card, context)
     calc_texture = function()
-      local chips_saved = G.GAME.pet_bowl_saved
+      local chips_saved = card.ability.extra.score_saved
       local blind_score = G.GAME.blind.chips
       local old_texture = self.pos.x
 
@@ -131,14 +146,14 @@ SMODS.Joker {
     end
   
     -- Ensure only one joker can exist
-    if context.buying_card then
+    if context.buying_card and card == self then
       G.GAME.pool_flags.ktsu_pet_bowl_in_deck = true
     end
 
     -- Spawn joker again if sold
-    if context.selling_card then
+    if context.selling_card and card == self then
       G.GAME.pool_flags.ktsu_pet_bowl_in_deck = false
-      G.GAME.pet_bowl_saved = 0 -- Forcefully reset joker and sprite
+      card.ability.extra.score_saved = 0 -- Forcefully reset joker and sprite
       self.pos.x = 0
     end
 
@@ -150,13 +165,13 @@ SMODS.Joker {
     
     -- Chip save
     if context.end_of_round and context.main_eval and not context.blueprint then
-     local chips_saved = G.GAME.pet_bowl_saved
+     local chips_saved = card.ability.extra.score_saved
      local chips_excess = G.GAME.chips - G.GAME.blind.chips
      
      if chips_excess > 0 then
        local sound_variants = {"ktsu_crunch1", "ktsu_crunch2", "ktsu_crunch3", "ktsu_crunch4"}
        G.GAME.chips = G.GAME.chips - chips_excess
-       G.GAME.pet_bowl_saved = chips_saved + chips_excess
+       card.ability.extra.score_saved = chips_saved + chips_excess
        calc_texture()
 
        G.E_MANAGER:add_event(Event({
@@ -173,7 +188,7 @@ SMODS.Joker {
        }
      end
      load = function(self, card, card_table, other_card)
-      local chips_saved = G.GAME.pet_bowl_saved
+      local chips_saved = card.ability.extra.score_saved
       local blind_score = G.GAME.blind.chips
 
       if chips_saved >= blind_score * 2 then -- Well 2 times blind
@@ -188,10 +203,10 @@ SMODS.Joker {
 
    -- Game Over handeling
    if context.end_of_round and context.game_over and not context.blueprint then
-     local chips_saved = G.GAME.pet_bowl_saved
+     local chips_saved = card.ability.extra.score_saved
      
      G.GAME.chips = G.GAME.chips + chips_saved
-     G.GAME.pet_bowl_saved = 0
+     card.ability.extra.score_saved = 0
      self.pos.x = 0 -- No need to calculate new texture
      
      if G.GAME.chips >= G.GAME.blind.chips then
@@ -263,10 +278,3 @@ SMODS.Joker {
   end
 }
 
-
-local igo = Game.init_game_object
-function Game:init_game_object()
-  local ret = igo(self)
-  ret.pet_bowl_saved = 0
-  return ret
-end
