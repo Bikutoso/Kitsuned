@@ -3,7 +3,7 @@
 	"name": "Kitsuned",
 	"display_name": "Kitsuned",
 	"author": ["Bikutoso"],
-	"description": "Adds some random things",
+	"description": "Just random additions i felt like adding",
 	"prefix": "ktsu",
 	"main_file": "main.lua",
 	"priority": 0,
