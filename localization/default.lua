@@ -50,6 +50,16 @@ return {
             "{C:inactive}(#2#)",
           },
         },
+        j_ktsu_rain = {
+          name = "Rain",
+          text = {
+            "Gains {C:chips}+#2#{} Chips",
+            "per hand played.",
+            "Loose {C:chips}-#3#{} Chips",
+            "after each {C:attention}Blind{}",
+            "{C:inactive}(Currnetly {C:chips}+#1#{C:inactive} Chips)",
+          },
+        },
       },
       Planet={
         c_ktsu_rhea = {
@@ -86,6 +96,7 @@ return {
         dictionary = {
           ["k_ktsu_moon"] = "Moon",
           ["k_ktsu_crunch"] = "Crunch",
+          ["k_ktsu_downgrade"] = "Downgrade!"
         },
         poker_hands = {
           ["ktsu_cat_dog"] = "Cat/Dog",
