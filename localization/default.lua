@@ -94,6 +94,7 @@ return {
           ["ach_ktsu_what_are_the_odds"] = "1 in 100,000,000",
         },
         dictionary = {
+          ["k_ktsu_art_credit_biku"] = "Art: Bikutoso",
           ["k_ktsu_moon"] = "Moon",
           ["k_ktsu_crunch"] = "Crunch",
           ["k_ktsu_downgrade"] = "Downgrade!"

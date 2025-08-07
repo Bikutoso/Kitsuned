@@ -7,6 +7,9 @@ SMODS.Joker {
   atlas = "jokers",
   pos = { x = 0, y = 0},
   config = { extra = { mult = 12, type = "ktsu_cat_dog" } },
+  set_card_type_badge = function(self, card, badges)
+    badges[#badges + 1] = create_badge( localize("k_ktsu_art_credit_biku"), G.C.PURPLE, nil, 0.9 )
+  end,
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.mult, localize(card.ability.extra.type, "poker_hands") } }
   end,
@@ -28,6 +31,9 @@ SMODS.Joker {
   atlas = "jokers",
   pos = { x = 1, y = 0},
   config = { extra = { chips = 100, type = "ktsu_cat_dog" } },
+  set_card_type_badge = function(self, card, badges)
+    badges[#badges + 1] = create_badge( localize("k_ktsu_art_credit_biku"), G.C.PURPLE, nil, 0.9 )
+  end,
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.chips, localize(card.ability.extra.type, "poker_hands") } }
   end,
@@ -50,6 +56,9 @@ SMODS.Joker {
   atlas = "jokers",
   pos = { x = 2, y = 0},
   config = { extra = { Xmult = 3, type = "ktsu_cat_dog" } },
+  set_card_type_badge = function(self, card, badges)
+    badges[#badges + 1] = create_badge( localize("k_ktsu_art_credit_biku"), G.C.PURPLE, nil, 0.9 )
+  end,
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.Xmult, localize(card.ability.extra.type, "poker_hands") } }
   end,
@@ -77,6 +86,9 @@ SMODS.Joker {
   atlas = "jokers",
   pos = { x = 3, y = 0},
   config = {},
+  set_card_type_badge = function(self, card, badges)
+    badges[#badges + 1] = create_badge( localize("k_ktsu_art_credit_biku"), G.C.PURPLE, nil, 0.9 )
+  end,
   loc_vars = function(self, info_queue, card)
     return {}
   end,
@@ -91,6 +103,9 @@ SMODS.Joker {
   atlas = "jokers",
   pos = { x = 0, y = 1},
   config = {},
+  set_card_type_badge = function(self, card, badges)
+    badges[#badges + 1] = create_badge( localize("k_ktsu_art_credit_biku"), G.C.PURPLE, nil, 0.9 )
+  end,
   loc_vars = function(self, info_queue, card)
     return {
       vars = {
@@ -212,6 +227,9 @@ SMODS.Joker {
   atlas = "jokers",
   pos = { x = 4, y = 0},
   config = { extra = { chips = 0, chip_gain = 15, chip_loss = 25 }},
+  set_card_type_badge = function(self, card, badges)
+    badges[#badges + 1] = create_badge( localize("k_ktsu_art_credit_biku"), G.C.PURPLE, nil, 0.9 )
+  end,
   loc_vars = function(self, info_queue, card)
     return { vars = { card.ability.extra.chips, card.ability.extra.chip_gain, card.ability.extra.chip_loss }}
   end,
