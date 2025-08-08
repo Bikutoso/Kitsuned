@@ -27,3 +27,4 @@ Kitsuned also support [Talisman](https://github.com/SpectralPack/Talisman) as an
 ## Issues
 * Typos, always typos
 * Cat/Dog can never play more than 5 cards
+* "Saved By Mr.Bones" appearing randomly in cashout screen if having Pet Bowl

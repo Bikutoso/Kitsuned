@@ -43,7 +43,7 @@ return {
           text = {
             "Surplus chips saved",
             "to try and prevent death",
-            "{C:inactive}(Currnetly {X:purple,C:white}#1#{C:inactive} Chips)"
+            "{C:inactive}(Currently {X:purple,C:white}#1#{C:inactive} Chips)"
           },
           unlock = {
             "Lose {C:attention,E:1}#1#{} runs",
@@ -57,7 +57,7 @@ return {
             "per hand played.",
             "Loose {C:chips}-#3#{} Chips",
             "after each {C:attention}Blind{}",
-            "{C:inactive}(Currnetly {C:chips}+#1#{C:inactive} Chips)",
+            "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
           },
         },
       },

@@ -66,6 +66,6 @@ function get_cat_dog_hand_name(hand)
   -- Find Valid Hand
   valid_hand = poker_hands[highest..lowest]
 
-  if not fox_present and valid_hand == "fox" then return nil end
+  if not fox_present and valid_hand == "Fox" then return nil end
   return valid_hand
 end
