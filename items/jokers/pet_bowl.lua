@@ -57,10 +57,11 @@ SMODS.Joker {
     if context.end_of_round and context.main_eval and not context.blueprint then
      local chips_saved = card.ability.extra.score_saved
      local chips_excess = G.GAME.chips - G.GAME.blind.chips
+     --sendDebugMessage("Saved: "..chips_saved.."\nExcess: "..chips_excess.." (\n  Blind: "..G.GAME.chips.."\n   Chips: "..G.GAME.blind.chips.." )", "ktsu")
      
      if safe_compare(chips_excess, ">", 0) then
        local sound_variants = {"ktsu_crunch1", "ktsu_crunch2", "ktsu_crunch3", "ktsu_crunch4"}
-       G.GAME.chips = G.GAME.chips - chips_excess
+       G.GAME.chips = G.GAME.blind.chips
        card.ability.extra.score_saved = chips_saved + chips_excess
        calc_texture()
 
@@ -94,6 +95,7 @@ SMODS.Joker {
    -- Game Over handeling
    if context.end_of_round and context.game_over and not context.blueprint then
      local chips_saved = card.ability.extra.score_saved
+     --sendDebugMessage("Death triggered (SC: "..G.GAME.chips..", BC: "..G.GAME.blind_score..")", "ktsu")
      
      G.GAME.chips = G.GAME.chips + chips_saved
      card.ability.extra.score_saved = 0
