@@ -2,6 +2,9 @@ local available_modules = {
   [""] = { --Item Root
     "content.lua",
   },
+  ["utilities"] = {
+    "compare.lua",
+  },
   ["jokers"] = {
     "energetic_joker.lua",
     "playful_joker.lua",

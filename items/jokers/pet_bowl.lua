@@ -25,16 +25,16 @@ SMODS.Joker {
       local old_texture = self.pos.x
 
       -- BUG: Until updated texture can be wrong if sold and rebought, or reload a save.
-      if chips_saved >= blind_score * 2 then -- Well 2 times blind
+      if safe_compare(chips_saved, ">=", blind_score * 2) then -- Well 2 times blind
         self.pos.x = 2
-      elseif chips_saved >= blind_score then -- Above blind
+      elseif safe_compare(chips_saved, ">=", blind_score) then -- Above blind
         self.pos.x = 1
       else -- Under blind
         self.pos.x = 0
       end
       if not old_texture == self.pos.x then return true end
     end
-  
+
     -- Ensure only one joker can exist
     if context.buying_card and card == self then
       G.GAME.pool_flags.ktsu_pet_bowl_in_deck = true
@@ -58,7 +58,7 @@ SMODS.Joker {
      local chips_saved = card.ability.extra.score_saved
      local chips_excess = G.GAME.chips - G.GAME.blind.chips
      
-     if chips_excess > 0 then
+     if safe_compare(chips_excess, ">", 0) then
        local sound_variants = {"ktsu_crunch1", "ktsu_crunch2", "ktsu_crunch3", "ktsu_crunch4"}
        G.GAME.chips = G.GAME.chips - chips_excess
        card.ability.extra.score_saved = chips_saved + chips_excess
@@ -81,9 +81,9 @@ SMODS.Joker {
       local chips_saved = card.ability.extra.score_saved
       local blind_score = G.GAME.blind.chips
 
-      if chips_saved >= blind_score * 2 then -- Well 2 times blind
+      if safe_compare(chips_saved, ">=", blind_score * 2) then -- Well 2 times blind
         self.pos.x = 2
-      elseif chips_saved >= blind_score then -- Above blind
+      elseif safe_compare(chips_saved, ">=", blind_score) then -- Above blind
         self.pos.x = 1
       else -- Under blind
         self.pos.x = 0
@@ -99,7 +99,7 @@ SMODS.Joker {
      card.ability.extra.score_saved = 0
      self.pos.x = 0 -- No need to calculate new texture
      
-     if G.GAME.chips >= G.GAME.blind.chips then
+     if safe_compare(G.GAME.chips, ">=", G.GAME.blind.chips) then
        G.E_MANAGER:add_event(Event({
          func = function()
            G.hand_text_area.game_chips:juice_up()

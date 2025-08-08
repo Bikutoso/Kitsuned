@@ -1,9 +1,11 @@
 # Kitsuned
 A Balatro mod that adds some new things.
 
+Kitsuned also support [Talisman](https://github.com/SpectralPack/Talisman) as an optional dependency
+
 ## Current Additions
 ### Poker Hands
-**Cat/Dog:** New [poker hand](https://en.wikipedia.org/wiki/Non-standard_poker_hand#Cats_and_dogs "poker hand") with associated Joker cards.
+**Cat/Dog:** New [poker hand](https://en.wikipedia.org/wiki/Non-standard_poker_hand#Cats_and_dogs) with associated Joker cards.
 > **NOTE:** *Straights* will have priority over *Cat/Dog* in case of conflict.
 
 ### Jokers
@@ -18,7 +20,6 @@ A Balatro mod that adds some new things.
 
 ## Todo
 * More jokers, enchaments, stickers, and much more
-* Talisman support
 * Possibly a Low Ace Fox (Cat/Dog)
 * Better Art
 * Possibly a boss blind

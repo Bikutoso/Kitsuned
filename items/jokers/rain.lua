@@ -27,7 +27,7 @@ SMODS.Joker {
     end
     if (( context.end_of_round and context.cardarea == G.jokers ) or context.skip_blind ) and not context.blueprint then
       card.ability.extra.chips = card.ability.extra.chips - card.ability.extra.chip_loss
-      if card.ability.extra.chips <= 0 then
+      if safe_compare(card.ability.extra.chips, "<=", 0) then
         card.ability.extra.chips = 0
         return nil
       end
