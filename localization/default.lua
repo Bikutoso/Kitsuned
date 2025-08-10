@@ -41,9 +41,9 @@ return {
         j_ktsu_pet_bowl = {
           name = "Pet Bowl",
           text = {
-            "Surplus chips saved",
-            "to try and prevent death",
-            "{C:inactive}(Currently {X:purple,C:white}#1#{C:inactive} Chips)"
+            "Surplus score saved",
+            "for use in a Game Over",
+            "{C:inactive}(Currently {X:purple,C:white}#1#{C:inactive})"
           },
           unlock = {
             "Lose {C:attention,E:1}#1#{} runs",
@@ -95,6 +95,7 @@ return {
         },
         dictionary = {
           ["k_ktsu_art_credit_biku"] = "Art: Bikutoso",
+          ["k_ktsu_art_credit_na"] = "Art: N/A", -- Very slight modifications to base assets
           ["k_ktsu_moon"] = "Moon",
           ["k_ktsu_crunch"] = "Crunch",
           ["k_ktsu_downgrade"] = "Downgrade!"

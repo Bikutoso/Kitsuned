@@ -1,7 +1,12 @@
 # Kitsuned
-A Balatro mod that adds some new things.
+A Balatro mod mainly for me to experiment and learn from. Some ideas might be pulled into and expanded opun as standalone mods in the future.
 
-Kitsuned also support [Talisman](https://github.com/SpectralPack/Talisman) as an optional dependency
+I will try and balance my mod to be somewhat vanilla-ish, but it might have some more unbalanced and stronger elements.
+
+
+Any help is appricated and will help me greatly in better support a gmore ame i love and stronger elements.
+
+Optional support for [Talisman](https://github.com/SpectralPack/Talisman), but will work without it.
 
 ## Current Additions
 ### Poker Hands
@@ -27,4 +32,3 @@ Kitsuned also support [Talisman](https://github.com/SpectralPack/Talisman) as an
 ## Issues
 * Typos, always typos
 * Cat/Dog can never play more than 5 cards
-* "Saved By Mr.Bones" appearing randomly in cashout screen if having Pet Bowl
