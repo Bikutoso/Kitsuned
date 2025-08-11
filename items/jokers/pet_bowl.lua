@@ -4,10 +4,9 @@ SMODS.Joker {
   rarity = 3,
   cost = 12,
   unlocked = false,
-  no_pool_flag = "ktsu_pet_bowl_in_deck",
   atlas = "jokers",
   pos = { x = 0, y = 1},
-  config = { extra = {score_saved = 0, current_ante = 1} },
+  config = { extra = {score_saved = 0, in_store = false} },
   set_card_type_badge = function(self, card, badges)
     badges[#badges + 1] = create_badge( localize("k_ktsu_art_credit_biku"), G.C.PURPLE, nil, 0.9 )
   end,
@@ -17,26 +16,20 @@ SMODS.Joker {
   end,
  
   calculate = function(self, card, context)
-    -- Ensure only one joker can exist
-    if context.buying_card and card == self then
-      G.GAME.pool_flags.ktsu_pet_bowl_in_deck = true
-    end
-
-    -- Spawn joker again if sold
-    if context.selling_card and card == self then
-      G.GAME.pool_flags.ktsu_pet_bowl_in_deck = false
-    end
-
-    -- Update texture at start of ante
-    if G.GAME.round_resets.ante > card.ability.extra.current_ante then
-      card.ability.extra.current_ante = G.GAME.round_resets.ante
+    -- Update texture when entering store in case we anter a new ante and saved score falls in range of change
+    if G.STATE == G.STATES.SHOP and not card.ability.extra.in_store and not context.blueprint then
+      card.ability.extra.in_store = true
       card.children.center:set_sprite_pos({ x = self._new_pos_x(card.ability.extra.score_saved), y = 1})
       --TODO: Card jiggle on texture change
       --card:children.center:juice_up()
     end
+
+    -- Reset when leaving store
+    if context.ending_shop then card.ability.extra.in_store = false end
+    
     
     -- Chip save
-    if context.end_of_round and context.main_eval and not context.blueprint then
+    if context.end_of_round and context.cardarea == G.play and not context.blueprint then
      local chips_excess = G.GAME.chips - G.GAME.blind.chips
 
      if safe_compare(chips_excess, ">", 0) then
