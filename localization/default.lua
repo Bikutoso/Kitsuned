@@ -60,8 +60,8 @@ return {
             "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
           },
         },
-        j_ktsu_champion = {
-          name = "Champion",
+        j_ktsu_ribbon = {
+          name = "Ribbon",
           text = {
             "This Joker Gains",
             "{X:dark_edition,C:white}^0.01{} Mult for every",
@@ -118,6 +118,9 @@ return {
             "cards inbetween unplayed",
             "(A-9, K-8, 8-3, 7-2)",
           },
-        }
+        },
+        v_dictionary={
+          a_emult = {"^#1# Mult"},
+        },
     }
 }
