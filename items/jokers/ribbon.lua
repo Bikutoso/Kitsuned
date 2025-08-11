@@ -4,7 +4,8 @@ SMODS.Joker {
   rarity = 4,
   cost = 12,
   atlas = "jokers",
-  pos = { x = 3, y = 1},
+  pos = { x = 0, y = 2},
+  soul_pos = { x = 1, y = 2},
   config = {mult_gain = 0.01, extra = {mult = 1.0} },
   set_badges = function(self, card, badges)
     badges[#badges + 1] = create_badge( localize("k_ktsu_art_credit_biku"), G.C.PURPLE, nil, 0.9 )
