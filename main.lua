@@ -1,36 +1,16 @@
-local available_modules = {
-  [""] = { --Item Root
-    "content.lua",
-  },
-  ["utilities"] = {
-    "compare.lua",
-  },
-  ["jokers"] = {
-    "energetic_joker.lua",
-    "playful_joker.lua",
-    "friend.lua",
-    "fox.lua",
-    "pet_bowl.lua",
-    "rain.lua",
-  },
-  ["pokerhands"] = {
-    "cat_dog.lua",
-  },
-  --["tarots"] = {}, --Disabled for the moment
-  ["planets"] = {
-    "rhea.lua",
-  },
-  ["challanges"] = {
-    "self_made.lua",
-  },
-  ["achievements"] = {
-   "what_are_the_odds.lua",
-  },
-}
-
-for module_name, module in pairs(available_modules) do
-  for _, file in ipairs(module) do
-    sendInfoMessage("Loading: ./items/"..module_name.."/"..file, "ktsu")
-    assert(SMODS.load_file("items/"..module_name.."/"..file))()
+local function load_dir(mod_dir, directory)
+  local items = NFS.getDirectoryItems(mod_dir.."/"..directory)
+  for _, item in ipairs(items) do
+    local working_item = directory.."/"..item
+    if NFS.getInfo(mod_dir.."/"..working_item).type == "directory" then
+      load_dir(mod_dir, working_item)
+    else
+      if item:match(".lua$") then
+        --sendDebugMessage("Loading: "..working_item, "ktsu")
+        assert(SMODS.load_file(working_item))()
+      end
+    end
   end
 end
+
+load_dir(SMODS.current_mod.path,"items")
