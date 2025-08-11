@@ -60,6 +60,15 @@ return {
             "{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)",
           },
         },
+        j_ktsu_champion = {
+          name = "Champion",
+          text = {
+            "This Joker Gains",
+            "{X:dark_edition,C:white}^0.01{} Mult for every",
+            "{C:attention}Challenge{} completed",
+            "{C:inactive}(Currently {X:dark_edition,C:white}^#1#{C:inactive} Mult)",
+          },
+        },
       },
       Planet={
         c_ktsu_rhea = {

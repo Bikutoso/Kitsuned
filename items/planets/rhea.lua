@@ -7,6 +7,8 @@ SMODS.Consumable {
   pos = { x = 0, y = 0 },
   set_card_type_badge = function(self, card, badges)
     badges[1] = create_badge( localize("k_ktsu_moon"), get_type_colour( self or card.config, card ), nil, 1.2 )
+  end,
+  set_badges = function(self, card, badges)
     badges[#badges + 1] = create_badge( localize("k_ktsu_art_credit_na"), G.C.PURPLE, nil, 0.9 )
   end,
   loc_vars = function(self, info_queue, card)

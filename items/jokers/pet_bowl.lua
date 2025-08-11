@@ -7,7 +7,7 @@ SMODS.Joker {
   atlas = "jokers",
   pos = { x = 0, y = 1},
   config = { extra = {score_saved = 0, in_store = false} },
-  set_card_type_badge = function(self, card, badges)
+  set_badges = function(self, card, badges)
     badges[#badges + 1] = create_badge( localize("k_ktsu_art_credit_biku"), G.C.PURPLE, nil, 0.9 )
   end,
 
