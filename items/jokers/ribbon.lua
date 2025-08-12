@@ -43,6 +43,9 @@ SMODS.Joker {
     card.ability.extra.mult = 1.0 + (card.ability.mult_gain * G.PROFILES[G.SETTINGS.profile].progress.challenges.tally)
   end,
 
+  -- HACK: Legendary jokers forcfully have the Sould Card unlock condition and text.
+  --   This forces the joker to be unobtanable until my unlock condition unlocks the card.
+  --   Unlock Text is still wrong but likley no way around that outside patches
   in_pool = function(self, args)
       return self.unlocked and args.source == "sou"
   end,
