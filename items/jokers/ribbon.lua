@@ -1,6 +1,7 @@
 
 SMODS.Joker {
   key = "ribbon",
+  blueprint_compat = true,
   rarity = 4,
   cost = 12,
   atlas = "jokers",

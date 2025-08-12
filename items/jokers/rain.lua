@@ -1,5 +1,6 @@
 SMODS.Joker {
   key = "rain",
+  blueprint_compat = true,
   rarity = 1,
   atlas = "jokers",
   pos = { x = 4, y = 0},
