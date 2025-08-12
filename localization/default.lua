@@ -85,19 +85,10 @@ return {
         },
       },
       Tarot = {
-        c_ktsu_worn_tarot = {
-          name = "Worn Card",
-          text = {
-            "Upgrades cards with",
-            "existing enhancments",
-            "{C:inactive}(Cannot upgrade same card twice)",
-          },
-        },
       },
     },
     misc = {
         challenge_names = {
-          c_ktsu_self_made = "Self Made",
         },
         achievement_names = {
           ["ach_ktsu_what_are_the_odds"] = "What are the odds?",
@@ -107,7 +98,7 @@ return {
         },
         dictionary = {
           ["k_ktsu_art_credit_biku"] = "Art: Bikutoso",
-          ["k_ktsu_art_credit_na"] = "Art: N/A", -- Very slight modifications to base assets
+          ["k_ktsu_art_credit_na"] = "Art: N/A", -- Slight modifications to base assets
           ["k_ktsu_moon"] = "Moon",
           ["k_ktsu_crunch"] = "Crunch",
           ["k_ktsu_downgrade"] = "Downgrade!"

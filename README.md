@@ -1,7 +1,7 @@
 # Kitsuned
-A Balatro mod mainly for me to experiment and learn from. Some ideas might be pulled into and expanded opun as standalone mods in the future.
+An animal/pet themed mod that intorduced the Cat/Dog hand and other fun edditons.
 
-I will try and balance my mod to be somewhat vanilla-ish, but it might have some more unbalanced and stronger elements.
+Somewhat vanilla-ish, but it might have some more unbalanced and stronger elements.
 
 
 Any help is appricated and will help me greatly in better support a gmore ame i love and stronger elements.
@@ -20,15 +20,10 @@ Optional support for [Talisman](https://github.com/SpectralPack/Talisman), but w
 
 **Rain:** Incrased chips each played hand, but not playing enough and it will start to dry.
 
-### Challanges
-**Self Made:** Start with a minimal deck and slowly build up
+**Ribbon:** Exponent Mult Legendary that scales with how many challanges are complete.
+> **NOTE:** Unlock condition is actually "Complete a Challenge"
 
 ## Todo
 * More jokers, enchaments, stickers, and much more
 * Possibly a Low Ace Fox (Cat/Dog)
 * Better Art
-* Possibly a boss blind
-
-## Issues
-* Typos, always typos
-* Cat/Dog can never play more than 5 cards
