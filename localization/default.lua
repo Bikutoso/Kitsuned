@@ -68,6 +68,9 @@ return {
             "{C:attention}Challenge{} completed",
             "{C:inactive}(Currently {X:dark_edition,C:white}^#1#{C:inactive} Mult)",
           },
+          unlock = {
+            "Complete a {C:attention, E:1} Challenge",
+          },
         },
       },
       Planet={

@@ -2,6 +2,7 @@
 SMODS.Joker {
   key = "ribbon",
   blueprint_compat = true,
+  unlocked = false,
   rarity = 4,
   cost = 12,
   atlas = "jokers",
@@ -40,5 +41,20 @@ SMODS.Joker {
   
   set_ability = function(self, card, initial, delay_sprites)
     card.ability.extra.mult = 1.0 + (card.ability.mult_gain * G.PROFILES[G.SETTINGS.profile].progress.challenges.tally)
+  end,
+
+  in_pool = function(self, args)
+      return self.unlocked and args.source == "sou"
+  end,
+ 
+  locked_loc_vars = function(self, info_queue, card)
+    return { vars = {}}
+  end,
+
+  check_for_unlock = function(self, args)
+    if G.PROFILES[G.SETTINGS.profile].progress.challenges and G.PROFILES[G.SETTINGS.profile].progress.challenges.tally >= 1 then
+      return true
+    end
+    return false
   end,
 }
